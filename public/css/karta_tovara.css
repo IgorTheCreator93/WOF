@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Century Gothic;
+    font-size: 28px;
+}
+a {
+    text-decoration: none !important;
+    list-style: none !important;
+   
+  }
+
+body {
+    background: #BFBFBF;
+}
+.header2 {
+    width: 100%;
+    height: 136px;
+    font-weight: 28px;
+    background-color: #2b363a;
+
+  }
+  .nav2 {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+  }
+  .nav2 a {
+    font-size: 28px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+
+  }
+  
+  .logo2 {
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 280px;
+  }
+  .cart2 {
+    width: 53px;
+    height: 48px;
+    cursor: pointer;
+  }
+  .nav2 a:hover {
+    color: black;
+  }
+  .nav2 :nth-child(5) {
+    margin-left: 250px;
+  }
+
+.block1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 125px 0;
+    padding: 0 150px;
+}
+
+
+.block1 img {
+    width: 720px;
+    height: 900px;
+    margin-right: 100px;
+}
+
+.btn_text {
+    cursor: pointer;
+    margin-top: 80px;
+    border: none;
+    width: 250px;
+    height: 80px;
+    border-radius: 15px;
+    background: #2B363A;
+    box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: white;
+}
+.btn_text:hover{
+    background-color: #fff;
+    color: #000;
+    
+}
+
+.text h1 {
+    color: #000;
+    font-family: "Century Gothic";
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.text p {
+    margin-top: 40px;
+}
+
+.text :nth-child(6),
+.text :nth-child(4) {
+    margin-top: 80px;
+}
+
+footer {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    height: 485px;
+    background: #2B363A;
+}
+
+.logo3 {
+    width: 140px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.description {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+}
+
+.description a,
+.description p {
+    color: white;
+    font-size: 28px;
+    border: none;
+    ;
+}
+
+.description a {
+    margin-top: 20px;
+}
+
+.description div :nth-child(2) {
+    margin-top: 45px;
+}
+
+.description div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact {
+    display: flex;
+    width: 155px;
+    height: 155px;
+}
+
+.contact img {
+    width: 55px;
+    height: 55px;
+}

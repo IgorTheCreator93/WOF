@@ -1,0 +1,900 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: Century Gothic;
+  /* max-width: 1920px; */  
+}
+/* Хедер /////////////////////////////////////////////////////////////////////*/
+body {
+  width: 100%;
+  /* max-width: 1920px;
+  margin: 0 auto; */
+}
+html {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+div,
+p,
+a,
+span,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: 1px solid #a4a4a4;
+  box-sizing: border-box;
+  padding-left: 5px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  font-weight: 28px;
+  background: url(/public/img/Group10.png) center/cover no-repeat fixed;
+  /* background-size: 100% auto; */
+  padding-bottom: 440px;
+  /* border: 3px solid red; */
+}
+a {
+  text-decoration: none !important;
+  list-style: none !important;
+}
+.nav {
+  padding: 50px;
+  display: flex;
+  gap: 80px;
+  width: 100%;
+}
+.nav a {
+  font-size: 28px;
+  margin-top: 5px;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+.logo {
+  width: 90px;
+  height: 40px;
+  cursor: pointer;
+}
+.cart {
+  width: 63px;
+  height: 58px;
+  cursor: pointer;
+}
+.nav a:hover {
+  color: white;
+}
+.content_title button:hover {
+  margin-left: 230px;
+  margin-top: 93px;
+  color: #fff;
+  font-family: Century Gothic;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 253px;
+  height: 79px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #2b363a;
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+}
+
+.content_title :nth-child(1) {
+  width: 799px;
+  height: 86px;
+  flex-shrink: 0;
+  color: #000;
+
+  font-family: Jacques Francois;
+  font-size: 65px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 96px;
+  margin-left: 150px;
+}
+.content_title :nth-child(2) {
+  width: 392px;
+  color: #000;
+
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 30px;
+  margin-left: 200px;
+}
+.content_title :nth-child(3) {
+  margin-top: 30px;
+  margin-left: 200px;
+  width: 449px;
+  color: #000;
+
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content_title :nth-child(4) {
+  text-decoration: none;
+  list-style: none;
+  margin-left: 230px;
+  margin-top: 93px;
+  color: #000;
+  font-family: Century Gothic;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 253px;
+  height: 79px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  width: 253px;
+}
+/* Хедер /////////////////////////////////////////////////////////////////////*/
+
+/* секция популярное//////////////////////////////////////////////////////////////// */
+section {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.content_popular {
+  width: 100%;
+  background-color: #bfbfbf;
+}
+.content_popular :nth-child(1) {
+  margin-top: 46px;
+  /* margin-bottom: 75px; */
+  color: #000;
+  margin-left: 778px;
+  font-family: Century Gothic;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content_popular :nth-child(8) {
+  margin-left: 262px;
+  width: 716px;
+  height: 708px;
+  margin-top: -700px;
+}
+.content_popular :nth-child(2) {
+  margin-left: 1116px;
+  margin-top: 120px;
+  color: #000;
+
+  font-family: Century Gothic;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+.content_popular :nth-child(3) {
+  margin-left: 1116px;
+  margin-top: 40px;
+  color: #000;
+
+  font-family: Century Gothic;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content_popular :nth-child(4) {
+  margin-left: 1116px;
+  margin-top: 40px;
+  color: #000;
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+.content_popular :nth-child(5) {
+  margin-left: 1116px;
+  margin-top: 40px;
+  color: #000;
+  width: 420px;
+
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content_popular :nth-child(6) {
+  margin-left: 1116px;
+  margin-top: 40px;
+  color: #000;
+
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content_popular :nth-child(7) {
+  margin-left: 1116px;
+  margin-top: 50px;
+  width: 303px;
+  height: 95px;
+  flex-shrink: 0;
+  border-radius: 17px;
+  background: #2b363a;
+
+  /* box-shadow: 20px 20px 100px 0px rgba(0, 0, 0, 0.25); */
+  color: #fff;
+  border: none;
+  font-family: Century Gothic;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+.content_popular :nth-child(7):hover {
+  background: #ffffff;
+
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  color: #000;
+  cursor: pointer;
+}
+/* секция популярное//////////////////////////////////////////////////////////////// */
+
+/* секция слайдер/  ////////////////////////////////////////////////////////// */
+.content_slider {
+  width: 100%;
+  height: 1045px;
+}
+/* секция слайдер/  ////////////////////////////////////////////////////////// */
+
+/* хедер №2 .................................................*/
+.header2 {
+  width: 100%;
+  height: 136px;
+  font-weight: 28px;
+  background-color: #2b363a;
+  color: #fff;
+}
+.nav2 {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+}
+.nav2 a {
+  font-size: 28px;
+  margin-top: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.logo2 {
+  width: 90px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 280px;
+}
+.cart2 {
+  width: 53px;
+  height: 48px;
+  cursor: pointer;
+}
+.nav2 a:hover {
+  color: black;
+}
+.nav2 :nth-child(5) {
+  margin-left: 250px;
+}
+/* хедер №2 .................................................*/
+
+/* каталог .................................................*/
+.catalog {
+  width: 100%;
+  height: auto;
+  background-color: #bfbfbf;
+}
+/* сортировка .................................................*/
+
+.content_sort {
+  width: 100%;
+  margin-top: 95px;
+  display: flex;
+  justify-content: center;
+  gap: 160px;
+
+  font-family: "Century Gothic";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* .sort img{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-left: 170px;
+  top: 20px;
+  border: 3px solid rgb(43, 41, 41);
+  padding: 5px;
+} */
+.sort button {
+  width: 212px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #2b363a;
+  color: #fff;
+  font-family: "Century Gothic";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  margin-left: 170px;
+  margin-top: 20px;
+}
+.sort button:hover {
+  background: #ffffff;
+
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  color: #000;
+  cursor: pointer;
+}
+.sort a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  padding: 10px;
+  color: black;
+  font-size: 22px;
+  font-family: "Century Gothic";
+}
+.sort_item {
+  margin-top: 10px;
+  position: absolute;
+  display: none;
+  width: 300px;
+  height: auto;
+  margin-left: 170px;
+  border-radius: 17px;
+  background-color: #fff;
+}
+/* .sort_item:hover{
+  display: block;
+} */
+
+.content_sort a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.line1 {
+  margin-left: 9%;
+  margin-right: 9%;
+  width: 1525px;
+  height: 2px;
+  margin-top: 20px;
+}
+/* сортировка .................................................*/
+
+/* Карточка товара .................................................*/
+.catalog_card {
+  /* margin-top: 85px; */
+  margin-top: 60px;
+  display: flex;
+  width: 100%;
+  /* border: 2px solid black; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 65px;
+}
+.card {
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* width: 25%; */
+  width: 466px;
+  height: 614px;
+
+  flex-shrink: 0;
+  border-radius: 17px;
+  background: #d9d9d9;
+}
+.card_img {
+  width: 312px;
+  height: 390px;
+  flex-shrink: 0;
+  background: url(<path-to-image>),
+    lightgray -0.216px -79.037px / 100.138% 120.266% no-repeat;
+}
+.card p {
+  margin-top: 7px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: "Century Gothic";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.card button {
+  margin-top: 22px;
+  width: 312px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #2b363a;
+  color: #fff;
+  font-family: "Century Gothic";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+}
+.card button:hover {
+  background: #ffffff;
+
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  color: #000;
+  cursor: pointer;
+}
+/* Карточка товара .................................................*/
+
+/* Карта .................................................*/
+.content_map {
+  width: 100%;
+  height: 1100px;
+  display: flex;
+  background-color: #bdbdbd;
+}
+.footer {
+  width: 100%;
+  height: 120px;
+}
+.about_us {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  width: 611px;
+  height: 611px;
+  margin-top: 150px;
+  margin-left: 162px;
+  border-radius: 10px;
+  background-color: #d3d2d2;
+}
+.about_us p {
+  margin-left: 42px;
+}
+.about_us p:nth-child(1) {
+  color: #494949;
+  font-family: "Century Gothic";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 58px;
+}
+.about_us p:nth-child(2) {
+  color: #000;
+  font-family: "Century Gothic";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 20px;
+}
+.about_us p:nth-child(3) {
+  color: #494949;
+  font-family: "Century Gothic";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 72px;
+}
+.about_us p:nth-child(4) {
+  color: #000;
+  font-family: "Century Gothic";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 20px;
+}
+.about_us p:nth-child(5) {
+  color: #494949;
+  font-family: "Century Gothic";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 72px;
+}
+.about_us p:nth-child(6) {
+  color: #000;
+  font-family: "Century Gothic";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+.map {
+  margin-top: 85px;
+  margin-left: 177px;
+}
+
+/* футер................................... */
+footer {
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  height: 485px;
+  background: #2b363a;
+}
+
+.logo3 {
+  width: 140px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.description {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+
+.description a,
+.description p {
+  color: white;
+  font-size: 28px;
+  border: none;
+}
+
+.description a {
+  margin-top: 20px;
+}
+
+.description div :nth-child(2) {
+  margin-top: 45px;
+}
+
+.description div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  display: flex;
+  width: 155px;
+  height: 155px;
+}
+
+.contact img {
+  width: 55px;
+  height: 55px;
+}
+
+/* КОРЗИНААААААААААААААА */
+
+.cart1 {
+
+  width: 100%;
+  height: 1378px;
+  display: flex;
+  justify-content: center;
+  background-color: #bdbdbd;
+}
+.cart_item1 {
+  display: flex;
+
+  gap: 200px;
+  margin-top: 123px;
+  width: 90%;
+  height: 403px;
+  border: none;
+  box-shadow: 20px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background-color: #d9d9d9;
+}
+.cart_item1 .cart1_photo1 {
+  width: 250px;
+  height: 300px;
+  margin-left: 127px;
+  margin-top: 50px;
+}
+.cart_item1 .cart1_photo2 {
+  width: 50px;
+  height: 50px;
+  margin-top: 295px;
+}
+.cart_text {
+  /* border: 1px solid black; */
+  margin-top: 56px;
+
+}
+.cart_text :nth-child(2) {
+  margin-top: 20px;
+}
+.cart_text {
+  font-size: 40px;
+}
+.cart_plus_minus {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 294px;
+  justify-content: center;
+  gap: 70px;
+  font-size: 50px;
+  color: #fff;
+  width: 278px;
+  height: 52px;
+  background-color: #2b363a;
+  border-radius: 10px;
+}
+.cart_plus_minus a{
+  color: #fff;
+}
+.cart_plus_minus :nth-child(1){
+  margin-bottom: 8px;
+} 
+
+/* КОРЗИНААААААААААААААА */
+
+/* слайдер */
+/* section-4 */
+
+.section-4 {
+  width: 100%;
+  height: 613px;
+  padding-top: 50px;
+  padding-bottom: 700px;
+  display: flex;
+  /* border: 2px solid black;  */
+  position: relative;
+  /* margin-bottom: 140px; */
+  background-color: #bdbdbd;
+  /* padding:100px 0px 100px 100px; :  */
+  padding-left: 140px;
+}
+.section-4 img {
+  width: 65%;
+  height: auto;
+}
+
+.section-4 h1 {
+  color: var(--main-txt-color);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+.navigation {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  left: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  gap: 20px;
+}
+
+.navigation span {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--main-txt-color);
+  padding-left: 14.08px;
+  padding-top: 11.54px;
+  transition: 400ms;
+  cursor: pointer;
+}
+.navigation span:hover {
+  background-color: var(--hover-btn-color);
+}
+.navigation span:last-child {
+  padding-left: 17.46px;
+}
+
+.navigation div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation div p {
+  color: var(--main-txt-color);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  white-space: pre;
+}
+.slide {
+  background-color: #d9d9d9;
+  width: 344px;
+  height: 550px;
+  border-radius: 20px;
+}
+
+
+.navigation div p:first-child {
+  width: 9.77px;
+}
+
+.navigation div p:last-child {
+  opacity: 0.6;
+}
+
+.section-4 #slider {
+  width: 100%;
+}
+
+.section-4 #slider .slider__content {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3));
+  gap: 20px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+  margin-top: 60px;
+}
+
+.section-4 #slider .slider__content::-webkit-scrollbar {
+  display: none;
+}
+
+.section-4 #slider .slider__content .slide {
+  scroll-snap-align: start;
+  width: 394px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-4 #slider .slider__content.no-transition {
+  scroll-behavior: auto;
+}
+
+.section-4 #slider .slider__content.dragging .slide {
+  cursor: grab;
+  user-select: none;
+}
+
+.section-4 #slider .slider__content .slide img {
+  margin-bottom: 28px;
+}
+
+.section-4 #slider .slider__content .slide h2 {
+  color: var(--main-txt-color);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Century Gothic;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-bottom: 6px;
+}
+
+.section-4 #slider .slider__content .slide p {
+  color: var(--main-txt-color);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+
+.section-4 #slider .slider__content .slide a button {
+  margin-top: 22px;
+  width: 242px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #2b363a;
+  color: #fff;
+  font-family: "Century Gothic";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+}
+.section-4 #slider .slider__content .slide a button:hover{
+  color: #000;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 1220px) {
+  .section-4 #slider .slider__content {
+    grid-auto-columns: calc((100% / 2));
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .section-4 #slider .slider__content {
+    grid-auto-columns: 100%;
+  }
+}
+
+/*--Медиа-запросы-------------------------------*/
+/*xxl*/
+@media screen and (width >= 1400px) {
+}
+
+/*xl*/
+@media screen and (width >= 1200px) and (width < 1400px) {
+}
+
+/*lg*/
+@media screen and (width >= 992px) and (width < 1200px) {
+}
+
+/*md*/
+@media screen and (width >= 768px) and (width < 992px) {
+}
+
+/*sm*/
+@media screen and (width >= 576px) and (width < 768px) {
+}
+
+/*xs*/
+@media screen and (width < 576px) {
+}

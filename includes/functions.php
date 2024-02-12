@@ -243,7 +243,7 @@ function save_order($flower_id, $quan)//
 {
   include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
   $date = date('Y.m.d', time() + 3600);
-    
+  echo $flower_id ."|". $quan;
   $sql = "
   SELECT `quan`
   FROM `orders`
@@ -286,7 +286,7 @@ function get_price($id)//
   
   $sql = "
   SELECT `price`
-  FROM `flowers`
+  FROM `flower`
   WHERE `id` = ?
   ";
   $query = $db->prepare($sql);
@@ -301,15 +301,13 @@ function get_price($id)//
     return $price = 0;
   }
 }
-//-------------------------------------------------------------
-
 // ----------------------------------------------------------
 function get_orders()//
 {
   include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
     
   $sql = "
-  SELECT `flower`.`name`, `flower`.`price`, `orders`.`id`, `orders`.`quan`, `orders`.`cost`
+  SELECT `flower`.`name`, `flower`.`price`, `orders`.`id`, `orders`.`quan`, `orders`.`cost`, `flower`.`img`
   FROM `orders`, `flower` 
   WHERE `orders`.`payment` = ? and `flower`.`id` = `orders`.`flower_id`
   ";        
@@ -336,7 +334,7 @@ function del_order($id)//
     WHERE `id` = ?
     ";
     $query = $db->prepare($sql);
-     $query->execute([(integer)$id]);
+    $query->execute([(integer)$id]);
 }  
 
 // ----------------------------------------------------------

@@ -121,15 +121,19 @@
 .hl_1 {
 	background-color: #d4d4d4;
 	border-color: #d4d4d4;
-	border-width: 1px;
+	border-width: 2px;	
 }
 
 .hl_2 {
 	background-color: #f0f0f0;
-	border-color: #f0f0f0;
-	border-width: 1px;
-	pointer-events: none;
+	border-color: #d4d4d4;
+	border-width: 2px;
+	
 }
+
+.pe {
+	pointer-events: none;
+} 
 
 .fz {
 	font-size: 14px;

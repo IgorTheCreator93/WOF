@@ -50,10 +50,40 @@ $("#btn_text").click
 (
 	function()
 	{		
-		let id = $(this).data('id_');
+		let id = $(this).data('id');
 		
-		$.get("/includes/card.php", {'id_': id}, function(){});
-		// window.location.reload();
+		$.post("/includes/card.php", {'id_': id}, function(data){console.log(data);});
+		
+	// $.ajax({
+    //   url: '/includes/card.php',
+    //   method: 'post',
+    //   dataType: 'json',
+    //   data: {id_: id},
+    //   success: function(data){
+    //     console.log(data);
+    //   }
+    // });
+	}
+);
+
+$(".plus").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		alert(id);
+		$.post("/includes/cart.php", {'id_p': id}, function(data){console.log(data);});
+		
+	}
+);
+$(".minus").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		alert(id);
+		$.post("/includes/cart.php", {'id_m': id}, function(data){console.log(data);});
+		
 	}
 );
 

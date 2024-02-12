@@ -1,6 +1,19 @@
 <?
-include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+session_start();
+// $_SESSION['log_email'] = "";
+
+if (empty($_SESSION['reg_name'])) {$_SESSION['reg_name'] = "";}
+if (empty($_SESSION['reg_email'])) {$_SESSION['reg_email'] = "";}
+if (empty($_SESSION['log_email'])) {$_SESSION['log_email'] = "";}
+if (empty($_SESSION['log_stat'])) {$_SESSION['log_stat'] = "";}
+
+if (!empty($_POST["cancel"]))
+{
+    $_SESSION['log_email'] = "";
+}
+
 include "$_SERVER[DOCUMENT_ROOT]/includes/functions.php";
+include "$_SERVER[DOCUMENT_ROOT]/includes/form_data.php";
 
 if (!empty($_GET["id"])) {
     $id = $_GET["id"];
@@ -27,7 +40,7 @@ if (!empty($_GET["nap"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/public/css/style.css">
-
+    <link rel="stylesheet" href="/public/css/modal_dialogs.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Jacques+Francois&family=Joti+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
@@ -105,5 +118,6 @@ if (!empty($_GET["nap"])) {
     <? include "$_SERVER[DOCUMENT_ROOT]/includes/footer.php"; ?>
 </body>
 <script src="/public/js/scripts.js"></script>
+<? include "$_SERVER[DOCUMENT_ROOT]/includes/modal_dialogs.php" ?>
 
 </html>

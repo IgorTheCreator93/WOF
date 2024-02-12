@@ -34,8 +34,9 @@
 */}
 
 .modal_body {
-  background-color: #d4d4d4;
+  background-color: #f0f0f0;
   padding: 10px 20px 10px 20px;
+  border-radius: 3%;
 }
 
 .modal_body h4 {
@@ -109,13 +110,13 @@
 #open_modal_login a:nth-child(1) {
   font-weight: bold;
   font-family: 'Inter';
-  border-bottom: 3px solid #89C3AE;
+  border-bottom: 3px solid #2B363A;
 }
 
 #open_modal_registr a:nth-child(2) {
   font-weight: bold;
   font-family: 'Inter';
-  border-bottom: 3px solid #F46B71;
+  border-bottom: 3px solid  #2B363A;
 }
 
 /*--Форма----------------------------*/
@@ -159,8 +160,8 @@
   height: auto;
   padding: 7px 20px;
   border-radius: 7px;
-  background-color: #89c3ae;
-  color: #000;
+  background-color:  #2B363A;
+  color: #fff;
   font-size: 16px;
   font-weight: bold;
   font-family: 'Inter';
@@ -171,8 +172,8 @@
   height: auto;
   padding: 7px 20px;
   border-radius: 7px;
-  background-color: #F46B71;
-  color: #000;
+  background-color:  #2B363A;
+  color: #fff;
   font-size: 16px;
   font-weight: bold;
 }
@@ -182,3 +183,15 @@
   background-color: #0cc3ae;  
 }
 
+input {
+/*  margin: 10px 1px;  */
+}
+
+#korz_mess {
+  padding: 0;
+}
+
+/*------------------------------*/
+/*.header-shopping-cart input {
+  background-color: #a4a4a4;
+}*/

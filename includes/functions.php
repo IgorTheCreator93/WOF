@@ -41,6 +41,7 @@ function get_db_flower($id, $sort)
 	}
     
 }
+
 function get_db_flower_card($id)
 {
 	include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
@@ -239,30 +240,42 @@ function get_db_flower_card($id)
     }
   }
 //-----------------------------------------------------------------------
-function save_order($flower_id, $quan)//
+function save_order($flower_id, $quan, $zn, $us)//
 {
   include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
   $date = date('Y.m.d', time() + 3600);
-  echo $flower_id ."|". $quan;
+  
   $sql = "
   SELECT `quan`
   FROM `orders`
-  WHERE `date` = ? and `flower_id` = ?
+  WHERE `flower_id` = ? and `us_id` = ?
   ";        
   $query = $db->prepare($sql);
-  $query->execute([$date, (integer)$flower_id]);
+  $query->execute([(integer)$flower_id, (integer)$us]);
   $arr = $query->fetch(PDO::FETCH_ASSOC);//
   if($arr)
   {    
-    $quan = $arr['quan'] + $quan;
+    if($zn==1)
+    {
+      $quan = $arr['quan'] + $quan;
+    }
+
+    if($zn==2)
+    {
+      if ($arr['quan']>1)
+      {
+        $quan = $arr['quan'] - $quan;
+      }
+    }
+
     $sql = "
     UPDATE `orders`
     SET `quan`= ?
-    WHERE `flower_id` = ?
+    WHERE `flower_id` = ? and `us_id` = ?
     ";
 
     $query = $db->prepare($sql);
-    $query->execute([(float)$quan, (integer)$flower_id]);
+    $query->execute([(float)$quan, (integer)$flower_id, (integer)$us]);
     return $quan;
   }
   else
@@ -271,10 +284,10 @@ function save_order($flower_id, $quan)//
     $cost = $quan * $price;
 
     $sql = "
-    INSERT INTO `orders`(`date`, `flower_id`, `quan`, `cost`)
-    VALUES(?, ?, ?, ?)";
+    INSERT INTO `orders`(`date`, `flower_id`, `quan`, `cost`, `us_id`)
+    VALUES(?, ?, ?, ?, ?)";
     $query = $db->prepare($sql);
-    $query->execute([$date, (integer)$flower_id, (float)$quan, (float)$cost]);
+    $query->execute([$date, (integer)$flower_id, (float)$quan, (float)$cost, (integer)$us]);
 
     return 1;
   } 
@@ -307,7 +320,7 @@ function get_orders()//
   include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
     
   $sql = "
-  SELECT `flower`.`name`, `flower`.`price`, `orders`.`id`, `orders`.`quan`, `orders`.`cost`, `flower`.`img`
+  SELECT `flower`.`name`, `flower`.`price`, `orders`.`id`, `orders`.`flower_id`, `orders`.`quan`, `orders`.`cost`, `flower`.`img`
   FROM `orders`, `flower` 
   WHERE `orders`.`payment` = ? and `flower`.`id` = `orders`.`flower_id`
   ";        
@@ -338,6 +351,194 @@ function del_order($id)//
 }  
 
 // ----------------------------------------------------------
+//----------------------------------------
+function get_db_users_all()//
+  {
+    include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+   
+    $sql =  "SELECT * FROM `users`";
 
+    $query = $db->prepare($sql);    
+    $query->execute([]);
+    $arr = $query->fetchAll(PDO::FETCH_ASSOC);//многомерный массив)
+    
+    if($arr)
+    {
+      return $arr;
+    }
+    else
+    {
+      return null;
+    }      
+  }  
+  
+//-------------------------------------------------------------
+function save_data_user($reg_name, $reg_email, $reg_pass)//Проверка логина и пароля
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `email`
+  FROM `users`
+  WHERE `email` = ?
+  ";        
+  $query = $db->prepare($sql);
+  $query->execute([$reg_email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+  if($arr)
+  {    
+    return 1;
+  }
+  else
+  {
+    $reg_pass = password_hash($reg_pass,PASSWORD_DEFAULT);
 
+    $sql = "
+    INSERT INTO `users`(`name`, `email`, `pass`)
+    VALUES(?, ?, ?)";
+    $query = $db->prepare($sql);
+    $query->execute([$reg_name, $reg_email, $reg_pass]);
+
+    return 2;
+  } 
+}
+
+//-------------------------------------------------------------
+function get_data_user_pass($log_email, $log_pass)//Проверка логина и пароля
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `pass`
+  FROM `users`
+  WHERE `email` = ?
+  ";
+  $query = $db->prepare($sql);    
+  $query->execute([$log_email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC); //данные одной строки (одномерный массив)
+
+  if (!empty($arr))
+  {
+    if (password_verify($log_pass, $arr['pass'])) //Сравниваем пароли (в дешифрованном виде)
+    {
+      return 1;
+    }
+    else
+    {
+      return 2;
+    }
+  }
+  else
+  {
+    return 3;
+  }
+}
+//-------------------------------------------------------------
+//-----------------------------------------------------------------------
+function get_data_user_stat($email)//
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `email`
+  FROM `users`
+  WHERE `email` = ?
+  ";        
+  $query = $db->prepare($sql);
+  $query->execute([$email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+  if($arr)
+  {    
+    $sql = "
+    SELECT `status`
+    FROM `users`
+    WHERE `email` = ?
+    ";        
+    $query = $db->prepare($sql);
+    $query->execute([$email]);
+    $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+    return $arr['status']; 
+  }   
+}
+
+//-----------------------------------------------------------------------
+function get_data_user_ban($email)//
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `email`
+  FROM `users`
+  WHERE `email` = ?
+  ";        
+  $query = $db->prepare($sql);
+  $query->execute([$email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+  if($arr)
+  {    
+    $sql = "
+    SELECT `ban`
+    FROM `users`
+    WHERE `email` = ?
+    ";        
+    $query = $db->prepare($sql);
+    $query->execute([$email]);
+    $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+    return $arr['ban']; 
+  }   
+}
+
+//-----------------------------------------------------------------------
+function get_us_name($email)
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `email`
+  FROM `users`
+  WHERE `email` = ?
+  ";        
+  $query = $db->prepare($sql);
+  $query->execute([$email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+  if($arr)
+  {    
+    $sql = "
+    SELECT `name`
+    FROM `users`
+    WHERE `email` = ?
+    ";        
+    $query = $db->prepare($sql);
+    $query->execute([$email]);
+    $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+    return $arr['name']; 
+  }   
+}
+
+//-----------------------------------------------------------------------
+function get_user_id($email)
+{
+  include "$_SERVER[DOCUMENT_ROOT]/includes/db.php";
+  
+  $sql = "
+  SELECT `email`
+  FROM `users`
+  WHERE `email` = ?
+  ";        
+  $query = $db->prepare($sql);
+  $query->execute([$email]);
+  $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+  if($arr)
+  {    
+    $sql = "
+    SELECT `id`
+    FROM `users`
+    WHERE `email` = ?
+    ";        
+    $query = $db->prepare($sql);
+    $query->execute([$email]);
+    $arr = $query->fetch(PDO::FETCH_ASSOC);//данные одной строки (одномерный массив)
+    return $arr['id']; 
+  }   
+}
 ?>

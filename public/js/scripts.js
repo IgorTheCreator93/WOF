@@ -35,6 +35,7 @@ $(".cart2").click
 	}
 
 );
+
 $("#but3").click
 (
 	function()
@@ -44,49 +45,6 @@ $("#but3").click
 	}
 
 );
-
-
-$("#btn_text").click
-(
-	function()
-	{		
-		let id = $(this).data('id');
-		
-		$.post("/includes/card.php", {'id_': id}, function(data){console.log(data);});
-		
-	// $.ajax({
-    //   url: '/includes/card.php',
-    //   method: 'post',
-    //   dataType: 'json',
-    //   data: {id_: id},
-    //   success: function(data){
-    //     console.log(data);
-    //   }
-    // });
-	}
-);
-
-$(".plus").click
-(
-	function()
-	{		
-		let id = $(this).data('id');
-		alert(id);
-		$.post("/includes/cart.php", {'id_p': id}, function(data){console.log(data);});
-		
-	}
-);
-$(".minus").click
-(
-	function()
-	{		
-		let id = $(this).data('id');
-		alert(id);
-		$.post("/includes/cart.php", {'id_m': id}, function(data){console.log(data);});
-		
-	}
-);
-
 
 $("#sort").click
 (
@@ -105,6 +63,97 @@ $("#sort").click
 
 );
 
+$("#btn_text").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		let us = $(this).data('user');
+
+		$.post("/includes/card.php", {'id_': id, 'us': us}, function(data){
+			console.log(data);
+		});		
+	}
+);
+
+$(".plus").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		let price = $(this).data('price');
+		let us = $(this).data('user');
+		
+		$.post("/includes/cart.php", {'id_p': id, 'us': us}, function()
+		{
+			let quan = Number($("#quan_"+id).text())+1;
+			$("#quan_"+id).text(quan);
+			let cost = 1 * price;
+			let cost_ = Number($("#cost").text());//
+			cost_ = cost_ + cost;
+			$("#cost").text(cost_); 
+		});
+		
+	}
+);
+
+$(".minus").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		let price = $(this).data('price');
+		let us = $(this).data('user');
+		
+
+		$.post("/includes/cart.php", {'id_m': id, 'us': us}, function()
+		{
+			let quan = Number($("#quan_"+id).text())-1;
+			if (quan!==0)
+			{
+				$("#quan_"+id).text(quan);
+				
+				let cost = 1 * price;
+				let cost_ = Number($("#cost").text());
+				cost_ = cost_ - cost;
+				$("#cost").text(cost_);
+			}
+
+		});
+		
+	}
+);
+
+$(".delete").click
+(
+	function()
+	{		
+		let id = $(this).data('id');
+		let price = $(this).data('price');
+		//let quan = $(this).data('quan');
+					
+		$.post("/includes/cart.php", {'id_t': id}, function()
+		{
+			let quan = Number($("#quan_"+id).text());
+			let cost = price * quan;
+			//alert(price+"*"+quan+"="+cost);
+			let cost_ = Number($("#cost").text());
+			
+			cost_ = cost_ - cost;
+			if(cost_!==0)
+			{
+				$("#cost").text(cost_);				
+			}
+			else
+			{
+				$("#tableau").remove();
+				$("#zakaz").remove();
+			}
+				
+			$("#cart1_"+id).remove();
+		});		
+	}
+);
 
 /// слайдео
 const wrpper = document.querySelector('.section-4 #slider');

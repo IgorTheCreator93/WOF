@@ -1,3 +1,21 @@
+<?
+session_start();
+// $_SESSION['log_email'] = "";
+
+if (empty($_SESSION['reg_name'])) {$_SESSION['reg_name'] = "";}
+if (empty($_SESSION['reg_email'])) {$_SESSION['reg_email'] = "";}
+if (empty($_SESSION['log_email'])) {$_SESSION['log_email'] = "";}
+if (empty($_SESSION['log_stat'])) {$_SESSION['log_stat'] = "";}
+
+if (!empty($_POST["cancel"]))
+{
+    $_SESSION['log_email'] = "";
+}
+
+include "$_SERVER[DOCUMENT_ROOT]/includes/functions.php";
+include "$_SERVER[DOCUMENT_ROOT]/includes/form_data.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/public/css/O_nas.css">
+    <link rel="stylesheet" href="/public/css/modal_dialogs.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <header>
@@ -67,7 +86,8 @@
     </div>
 
     <?include "$_SERVER[DOCUMENT_ROOT]/includes/footer.php";?>
-
+    <? include "$_SERVER[DOCUMENT_ROOT]/includes/modal_dialogs.php" ?>
+    
 </body>
-<script src="/public/js/scripts.js"></script> 
+    <script src="/public/js/scripts.js"></script> 
 </html>

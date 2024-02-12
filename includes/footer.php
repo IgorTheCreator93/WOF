@@ -30,6 +30,16 @@
                 <a href="https://vk.com/leave_me_aalone" class="down"><img src="/public/img/whatsapp.png" alt=""></a>
             </div>
         </div>
+        <div class="contact_2">
+            <div class="left">
+                <a href="https://vk.com/leave_me_aalone" class="up"><img src="/public/img/instagram_black.png" alt=""></a>
+                <a href="https://vk.com/leave_me_aalone" class="down"><img src="/public/img/telegramm_black.png" alt=""></a>
+            </div>
+            <div class="right">
+                <a href="https://vk.com/leave_me_aalone" class="up"><img src="/public/img/vk_black.png" alt=""></a>
+                <a href="https://vk.com/leave_me_aalone" class="down"><img src="/public/img/whatsapp_black.png" alt=""></a>
+            </div>
+        </div>
     </footer>
     <style>
        /* футер................................... */
@@ -37,7 +47,7 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   display: flex;
-  height: 485px;
+  height: max-content;
   background: #2B363A;
 }
 
@@ -51,6 +61,7 @@ footer {
   display: flex;
   width: 800px;
   justify-content: space-between;
+  margin-top: 100px;
 }
 
 .description a,
@@ -83,6 +94,70 @@ footer {
 .contact img {
   width: 55px;
   height: 55px;
+}
+@media screen and (max-width: 1300px) {
+  footer{
+    flex-direction: column;
+    height: max-content;
+    padding-top: 28px;
+    background: #BFBFBF;
+  }
+  footer .description div p{
+    color: #000;
+  }
+  .contact{
+    display: none;
+  }
+  .contact_2{
+    display: block;
+  }
+  footer .description div a{
+    color:#4A4A4A;
+  }
+  footer .description{
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: auto;
+  }
+  footer .contact{
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  footer .contact .left{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  footer .contact .right{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  footer .contact_2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  footer .contact_2 .left{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  footer .contact_2 .right{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .logo3{
+    margin-bottom: 29px;
+  }
 }
  
     </style>
